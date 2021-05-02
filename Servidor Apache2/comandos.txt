@@ -1,0 +1,42 @@
+
+instalação o Apache2 - php7.4-maria db
+
+
+sudo apt-get install -f apache2 php7.4 mariadb-server phpmyadmin
+
+sudo /etc/init.d/apache2 status
+
+sudo /etc/init.d/mysql status
+
+
+criar hosts virtuais
+
+sudo mkdir -p /var/www/castlevaniadigital.com/public_html
+
+sudo chown -R $USER:$USER /var/www/castlevaniadigital.com/public_html
+
+nano /var/www/castlevaniadigital.com/public_html/index.html
+
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/castlevaniadigital.com.conf
+
+sudo nano /etc/apache2/sites-available/castlevaniadigital.com.conf
+
+ativar o dominio 
+
+sudo a2ensite castlevaniadigital.com
+
+desativar o padrão do apache 
+
+sudo a2dissite 000-default.conf
+
+restartar o apache 
+
+sudo systemctl reload apache2
+
+edit arquivo host
+
+sudo nano /etc/hosts
+
+sudo /etc/init.d/apache2 restart
+
+
